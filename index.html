@@ -1,0 +1,427 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bongy Guide</title>
+  <meta name="description" content="Weekend care guide for Bongy from Friday, April 3 to Monday, April 6.">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;700&family=Nunito:wght@500;700&display=swap');
+
+    :root {
+      --bg-1: #fff5fb;
+      --bg-2: #ffe8f3;
+      --card: #fffafc;
+      --pink-1: #ff8fc3;
+      --pink-2: #ffb6d7;
+      --pink-3: #ffd7ea;
+      --text: #55324b;
+      --text-soft: #7a5a70;
+      --shadow: 0 12px 30px rgba(255, 143, 195, 0.2);
+      --radius-lg: 24px;
+      --radius-md: 16px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: "Nunito", "Segoe UI", sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at 20% 15%, rgba(255, 205, 230, 0.7) 0, rgba(255, 205, 230, 0) 26%),
+        radial-gradient(circle at 85% 10%, rgba(255, 224, 240, 0.8) 0, rgba(255, 224, 240, 0) 22%),
+        linear-gradient(180deg, var(--bg-1), var(--bg-2));
+      min-height: 100vh;
+      line-height: 1.5;
+    }
+
+    .clouds {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 0;
+      overflow: hidden;
+    }
+
+    .cloud {
+      position: absolute;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.45);
+      filter: blur(0.3px);
+      animation: float 10s ease-in-out infinite;
+    }
+
+    .cloud:nth-child(1) { width: 180px; height: 72px; top: 10%; left: -40px; }
+    .cloud:nth-child(2) { width: 220px; height: 88px; top: 32%; right: -60px; animation-delay: 1.5s; }
+    .cloud:nth-child(3) { width: 130px; height: 58px; top: 62%; left: -20px; animation-delay: 3s; }
+    .cloud:nth-child(4) { width: 170px; height: 64px; top: 80%; right: -35px; animation-delay: 2.2s; }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-8px); }
+    }
+
+    .wrap {
+      position: relative;
+      z-index: 1;
+      max-width: 980px;
+      margin: 0 auto;
+      padding: 18px 14px 30px;
+    }
+
+    .card {
+      background: var(--card);
+      border: 2px solid #ffe1ef;
+      border-radius: var(--radius-lg);
+      padding: 18px;
+      box-shadow: var(--shadow);
+      margin-bottom: 14px;
+    }
+
+    h1, h2, h3 {
+      font-family: "Baloo 2", "Trebuchet MS", sans-serif;
+      margin: 0;
+      line-height: 1.1;
+    }
+
+    h1 {
+      font-size: clamp(2rem, 7vw, 3rem);
+      color: #d7418e;
+      letter-spacing: 0.4px;
+    }
+
+    h2 {
+      font-size: clamp(1.35rem, 4.8vw, 1.9rem);
+      color: #c83f86;
+      margin-bottom: 10px;
+    }
+
+    p {
+      margin: 8px 0 0;
+      color: var(--text-soft);
+    }
+
+    .badge {
+      display: inline-block;
+      margin-top: 8px;
+      background: linear-gradient(90deg, var(--pink-2), var(--pink-3));
+      color: #8b275d;
+      font-weight: 700;
+      border-radius: 999px;
+      padding: 7px 12px;
+      font-size: 0.92rem;
+    }
+
+    .hero {
+      text-align: center;
+      padding-top: 20px;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 10px;
+      margin-top: 14px;
+    }
+
+    .hero-grid img,
+    .photo-grid img {
+      width: 100%;
+      height: auto;
+      display: block;
+      border-radius: 18px;
+      border: 2px solid #ffd4e8;
+      object-fit: cover;
+    }
+
+    .list {
+      margin: 8px 0 0;
+      padding-left: 18px;
+    }
+
+    .list li {
+      margin: 6px 0;
+      color: var(--text-soft);
+    }
+
+    .table-wrap {
+      overflow-x: auto;
+      border-radius: var(--radius-md);
+      border: 2px solid #ffd7ea;
+      margin-top: 10px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      min-width: 520px;
+      background: #fff;
+    }
+
+    th, td {
+      padding: 11px;
+      text-align: left;
+      border-bottom: 1px solid #ffe4f0;
+      color: var(--text-soft);
+    }
+
+    th {
+      background: #fff0f8;
+      color: #8e3a67;
+      font-family: "Baloo 2", "Trebuchet MS", sans-serif;
+      font-size: 1.05rem;
+    }
+
+    .yes {
+      color: #2c8a5a;
+      font-weight: 700;
+    }
+
+    .no {
+      color: #b8628f;
+      font-weight: 700;
+    }
+
+    .grid-2,
+    .photo-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 12px;
+    }
+
+    .pill {
+      display: inline-block;
+      background: #ffe8f3;
+      border: 1px solid #ffd1e7;
+      color: #8a3562;
+      border-radius: 999px;
+      padding: 4px 10px;
+      font-size: 0.85rem;
+      font-weight: 700;
+      margin-bottom: 6px;
+    }
+
+    figure {
+      margin: 0;
+      background: #fff;
+      border: 2px solid #ffe3f1;
+      border-radius: var(--radius-md);
+      padding: 10px;
+    }
+
+    figcaption {
+      margin-top: 8px;
+      font-weight: 700;
+      color: #8a3562;
+      text-align: center;
+    }
+
+    .footer {
+      text-align: center;
+      color: #8a5f78;
+      font-size: 0.95rem;
+      margin-top: 8px;
+    }
+
+    @media (min-width: 760px) {
+      .wrap {
+        padding: 28px 22px 40px;
+      }
+
+      .hero-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .grid-2 {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .photo-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+
+      .card {
+        padding: 22px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="clouds" aria-hidden="true">
+    <div class="cloud"></div>
+    <div class="cloud"></div>
+    <div class="cloud"></div>
+    <div class="cloud"></div>
+  </div>
+
+  <main class="wrap">
+    <section class="card hero">
+      <h1>Bongy Guide</h1>
+      <p>Weekend cat-sitting notes for Bongus/Bongy.</p>
+      <span class="badge">Friday, April 3 to Monday, April 6</span>
+      <div class="hero-grid">
+        <img src="img/bongy1.jpg" alt="Bongy portrait photo 1">
+        <img src="img/bongy2.jpg" alt="Bongy portrait photo 2">
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>Feeding Schedule</h2>
+      <p>Times are approximate: breakfast around 8:00 AM and dinner around 8:00 PM.</p>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Date</th>
+              <th>Morning (~8:00 AM)</th>
+              <th>Evening (~8:00 PM)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Friday, April 3</td>
+              <td class="no">No feed</td>
+              <td class="yes">Feed</td>
+            </tr>
+            <tr>
+              <td>Saturday, April 4</td>
+              <td class="yes">Feed</td>
+              <td class="yes">Feed</td>
+            </tr>
+            <tr>
+              <td>Sunday, April 5</td>
+              <td class="yes">Feed</td>
+              <td class="yes">Feed</td>
+            </tr>
+            <tr>
+              <td>Monday, April 6</td>
+              <td class="yes">Feed</td>
+              <td class="no">No feed</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="grid-2">
+      <article class="card">
+        <h2>Food Details</h2>
+        <ul class="list">
+          <li><strong>Breakfast:</strong> 3/4 scoop of biscuits (~25g)</li>
+          <li><strong>Dinner:</strong> 3/4 scoop of biscuits (~25g) + 1 tsp wet food</li>
+          <li>Dry food is under the sink.</li>
+          <li>Wet food is in the fridge in a container if opened, and some cans will be out too.</li>
+        </ul>
+      </article>
+
+      <article class="card">
+        <h2>Water, Treats, Litter</h2>
+        <ul class="list">
+          <li>Water is in a cup on the table.</li>
+          <li>Treats are there for playtime.</li>
+          <li>Litter box is in the bathroom.</li>
+          <li>No full litter change needed, just scoop anything using the green bags.</li>
+        </ul>
+      </article>
+    </section>
+
+    <section class="card">
+      <h2>House Notes</h2>
+      <ul class="list">
+        <li>Do not let Bongus outside.</li>
+        <li>Please close the front door and do not lock yourself out.</li>
+        <li>The front door should click when it is closed properly.</li>
+        <li>Anything else in the house is help yourself.</li>
+        <li>Coffee is in the freezer, top drawer.</li>
+        <li>If anything comes up, call or message any of the boys (but we might not have service).</li>
+      </ul>
+    </section>
+
+    <section class="card">
+      <h2>Quick Photo Guide</h2>
+      <div class="photo-grid">
+        <figure>
+          <span class="pill">Food bowl</span>
+          <img src="img/food-bowl.jpg" alt="Bongy's food bowl" loading="lazy">
+          <figcaption>Food bowl area</figcaption>
+        </figure>
+        <figure>
+          <span class="pill">Dry food scoop</span>
+          <img src="img/dry-scoop-food.jpg" alt="Dry biscuit food and scoop" loading="lazy">
+          <figcaption>3/4 scoop of biscuits</figcaption>
+        </figure>
+        <figure>
+          <span class="pill">Wet food</span>
+          <img src="img/wet-cat-food.jpg" alt="Wet cat food container or cans" loading="lazy">
+          <figcaption>1 tsp at dinner</figcaption>
+        </figure>
+        <figure>
+          <span class="pill">Water cup</span>
+          <img src="img/water-cup.jpg" alt="Water cup on the table" loading="lazy">
+          <figcaption>Water on table</figcaption>
+        </figure>
+        <figure>
+          <span class="pill">Litter</span>
+          <img src="img/cat-litter.jpg" alt="Cat litter box area in bathroom" loading="lazy">
+          <figcaption>Scoop with green bags</figcaption>
+        </figure>
+        <figure>
+          <span class="pill">Toy</span>
+          <img src="img/toy.jpg" alt="Bongy's toy" loading="lazy">
+          <figcaption>Toy for playtime</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>Newtown Recs</h2>
+      <div class="grid-2">
+        <article>
+          <h3>Cafes</h3>
+          <ul class="list">
+            <li>Soulmate</li>
+            <li>Azuki</li>
+            <li>Maeda</li>
+            <li>Comeco (get the doughnut)</li>
+          </ul>
+        </article>
+        <article>
+          <h3>Shops</h3>
+          <ul class="list">
+            <li>The Wild Merchant</li>
+            <li>Hands</li>
+          </ul>
+        </article>
+        <article>
+          <h3>Dinner</h3>
+          <ul class="list">
+            <li>Westwood</li>
+            <li>Olotl</li>
+            <li>Maiz</li>
+            <li>Vandal</li>
+            <li>Cairo</li>
+          </ul>
+        </article>
+        <article>
+          <h3>Dessert</h3>
+          <ul class="list">
+            <li>Yochi</li>
+            <li>Mapo</li>
+          </ul>
+        </article>
+      </div>
+      <h3>Bars</h3>
+      <ul class="list">
+        <li>Bar Planet</li>
+        <li>Earls</li>
+        <li>Websters</li>
+      </ul>
+    </section>
+
+    <p class="footer">Thanks for cat-sitting Bongy. You are the best.</p>
+  </main>
+</body>
+</html>
